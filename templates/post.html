@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>留言板</title>
+</head>
+
+ 
+<!--  popper.min.js 用于弹窗、提示、下拉菜单 -->
+<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
+ 
+<!-- 最新的 Bootstrap5 核心 JavaScript 文件 -->
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous"></script>
+<body >
+   
+    <div class="container">
+        
+    <form action="/Message-Board/" method="post">
+        <!-- {% csrf_token%}
+        <label for="comment">请输入留言：</label>
+<textarea class="form-control" rows="5" id="comment" name="q"></textarea>
+ 
+        
+        昵称：<input type="text", name="n" style="width: 80px;">
+        <button type="submit" class="btn btn-primary">留言</button> -->
+        {% csrf_token%}
+            <div class="mb-3 mt-3">
+              
+              <textarea class="form-control" rows="5" id="comment" name="q" placeholder="留言内容"></textarea>
+            </div>
+            <div class="mb-3">
+            
+              <input type="text" class="form-control" placeholder="昵称" name="n">
+            </div>
+            <div class="form-check mb-3">
+              <label class="form-check-label">
+                <input class="form-check-input" type="checkbox" name="remember"> Remember me
+              </label>
+            </div>
+            <button type="submit" class="btn btn-primary">留言</button>
+       
+
+    </form>
+   
+    <table class="table">
+        <tr>
+            <th>内容</th>
+            <th>昵称</th>
+            <th>时间</th>
+        </tr>
+        {% for hi in list reversed%}
+        <tr>
+            <td>{{hi.cons}}</td>
+            <td>{{hi.name}}</td>
+            <td>{{hi.time}}</td>
+        </tr>
+        {% endfor %}
+        
+        
+    </table>
+</div>
+</body>
+</html>

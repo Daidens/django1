@@ -1,0 +1,19 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>vercel_deploy</title>
+</head>
+<body>
+    <h2>Hello,this is my vercel_deploy app</h2>
+<a href="{% url 'runoob'%}">返回Dragon页面</a>&nbsp;&nbsp;&nbsp;&nbsp;<a href="{% url 'hello'%}">返回主页</a>
+<p>{{num}}</p>
+{% for n,g in num.items %}
+<ol>{{n}}-----{{g}}</ol>
+{% endfor %}
+
+
+</body>
+</html>
